@@ -1,7 +1,8 @@
-# Database Modeling - YrkesCo
+# Database Modeling - YrkesCo <img width="50" height="50" alt="yrkesco" src="https://github.com/user-attachments/assets/64cecc94-6567-4b4f-8bdf-6c5761881380" />
 
 Database design for a fictional vocational school management system, built as a data engineering exercise.
 Covers the full design process - from conceptual ERD to physical PostgreSQL schema — for a school managing students, teachers, courses, and consultants across two cities.
+
 
 
 ## Stack
