@@ -1,11 +1,15 @@
-# Database Modeling
+# Database Modeling - YrkesCo
 
-A database design project for a school management system.
+Database design for a fictional vocational school management system, built as a data engineering exercise.
+Covers the full design process - from conceptual ERD to physical PostgreSQL schema — for a school managing students, teachers, courses, and consultants across two cities.
 
-## Project Overview
-This project implements a database design for YrkesCo, a vocational education provider operating schools in Stockholm and Göteborg. The system manages students, classes, programs, courses, teachers, and external consultants.
 
-## Contents
+## Stack
+
+PostgreSQL, Docker, DBML
+
+
+## Docs
 - [Project Requirements](docs/project-requirements.md)
 - [Conceptual ERD](docs/conceptual-model.md)
 - [Logical ERD](docs/logical-model.md)
@@ -16,51 +20,23 @@ This project implements a database design for YrkesCo, a vocational education pr
 - [Sample data](sql/seed-data.sql)
 
 
-## Database Features
-- **15 tables** in 3NF
-- **Constraints**: CHECK, FOREIGN KEY, UNIQUE, NOT NULL
-- **Bridge tables** for many-to-many relationships
-- **Sample records** for testing
-- **JOIN queries** demonstrating relationships
+## Setup 
 
-## Setup (Getting started)
-1. Clone the repo
 ```bash
-    git clone https://github.com/aurabyte-dev/Database_Modeling_PostgreSQL.git
+    git clone https://github.com/cactus-commits/database-modeling-postgresql.git
+    cp .env.example .env        # add your password
+    docker compose up -d
+    docker exec -i postgres psql -U postgres -d myh_db < sql/schema.sql
+    docker exec -i postgres psql -U postgres -d myh_db < sql/seed-data.sql
 ```
 
-2. Copy `.env.example` to `.env` and add your own password
-```bash
-   cp .env.example .env
-```
+To explore the database:
 
-3. Start the Docker container
-```bash
-   docker compose up -d
-```
-
-4. Initialize the database schema
-```bash
-    docker exec -i postgres psql -U postgres -d myh_db < sql/schema.sql  
-```
-
-5. Load sample data
 ```bash
    docker exec -i postgres psql -U postgres -d myh_db < sql/seed-data.sql
 ```
 
-To interact with the database:
-```bash
-docker exec -it postgres psql -U postgres -d myh_db
-```
+## What's inside
+15 tables in 3NF, with constraints, bridge tables for many-to-many relationships, sample data, and JOIN queries demonstrating the relationships.
 
-Database settings can be found in [docker-compose.yml](docker-compose.yml)
-
-## Skills demonstrated
-- Entity-Relationship Diagrams (ERD)
-- Database normalization (3NF)
-- PostgreSQL database design
-- DBML
-- Docker containerization
-- Data integrity through constraints
-
+_Part of my data engineering studies - first time going through the full ERD → schema → live database workflow._
